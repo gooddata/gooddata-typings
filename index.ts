@@ -283,20 +283,6 @@ export namespace VisualizationObject {
         };
     }
 
-    export interface IVisualizationObject {
-        meta: IObjectMeta;
-        content: IVisualizationObjectContent;
-    }
-
-    export interface IVisualization {
-        visualizationObject: IVisualizationObject;
-    }
-
-    export interface IVisualizationObjectResponse {
-        visualizationObject: IVisualizationObject;
-    }
-
-
     export interface IVisualizationObjectContent {
         visualizationClass: IObjUriQualifier;
         buckets: IBucket[];
@@ -355,6 +341,20 @@ export namespace VisualizationObject {
             popAttribute: IObjUriQualifier;
         };
     }
+
+    export interface IVisualizationObject {
+        meta: IObjectMeta;
+        content: IVisualizationObjectContent;
+    }
+
+    export interface IVisualization {
+        visualizationObject: IVisualizationObject;
+    }
+
+    export interface IVisualizationObjectResponse {
+        visualizationObject: IVisualizationObject;
+    }
+
 
     export function isMeasure(bucketItem: IMeasure | IVisualizationAttribute): bucketItem is IMeasure {
         return (bucketItem as IMeasure).measure !== undefined;
