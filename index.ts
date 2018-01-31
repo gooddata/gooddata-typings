@@ -360,13 +360,15 @@ export namespace VisualizationObject {
         return (bucketItem as IMeasure).measure !== undefined;
     }
 
-    export function isVisualizationAttribute(bucketItem: IMeasure | IVisualizationAttribute)
-    : bucketItem is IVisualizationAttribute {
+    export function isVisualizationAttribute(
+        bucketItem: IMeasure | IVisualizationAttribute
+    ): bucketItem is IVisualizationAttribute {
             return (bucketItem as IVisualizationAttribute).visualizationAttribute !== undefined;
     }
 
-    export function isMeasureDefinition(definition: IMeasureDefinition | IPoPMeasureDefinition)
-    : definition is IMeasureDefinition {
+    export function isMeasureDefinition(
+        definition: IMeasureDefinition | IPoPMeasureDefinition,
+    ): definition is IMeasureDefinition {
         return (definition as IMeasureDefinition).measureDefinition !== undefined;
     }
 
