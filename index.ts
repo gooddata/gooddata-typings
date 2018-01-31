@@ -212,6 +212,25 @@ export namespace AFM {
     }
 }
 
+export interface IObjectMeta {
+    author?: string;
+    category?: string;
+    contributor?: string;
+    created?: Date;
+    deprecated?: boolean;
+    identifier?: string;
+    isProduction?: boolean;
+    locked?: boolean;
+    projectTemplate?: string;
+    sharedWithSomeone?: boolean;
+    summary?: string;
+    tags?: string;
+    title: string;
+    unlisted?: boolean;
+    updated?: Date;
+    uri?: string;
+}
+
 export namespace VisualizationObject {
     export type SortDirection = 'asc' | 'desc';
     export type Identifier = string;
@@ -265,7 +284,7 @@ export namespace VisualizationObject {
     }
 
     export interface IVisualizationObject {
-        meta: IVisualizationObjectMeta;
+        meta: IObjectMeta;
         content: IVisualizationObjectContent;
     }
 
@@ -277,24 +296,6 @@ export namespace VisualizationObject {
         visualizationObject: IVisualizationObject;
     }
 
-    export interface IVisualizationObjectMeta {
-        author?: string;
-        category?: string;
-        contributor?: string;
-        created?: Date;
-        deprecated?: boolean;
-        identifier?: string;
-        isProduction?: boolean;
-        locked?: boolean;
-        projectTemplate?: string;
-        sharedWithSomeone?: boolean;
-        summary?: string;
-        tags?: string;
-        title: string;
-        unlisted?: boolean;
-        updated?: Date;
-        uri?: string;
-    }
 
     export interface IVisualizationObjectContent {
         visualizationClass: IObjUriQualifier;
@@ -504,25 +505,6 @@ export namespace Execution {
 }
 
 export namespace VisualizationClass {
-    export interface IVisualizationClassMeta {
-        author?: string;
-        category?: string;
-        contributor?: string;
-        created?: Date;
-        deprecated?: boolean;
-        identifier?: string;
-        isProduction?: boolean;
-        locked?: boolean;
-        projectTemplate?: string;
-        sharedWithSomeone?: boolean;
-        summary?: string;
-        tags?: string;
-        title: string;
-        unlisted?: boolean;
-        updated?: Date;
-        uri?: string;
-    }
-
     export interface IVisualizationClassContent {
         url: string;
         icon: string;
@@ -532,7 +514,7 @@ export namespace VisualizationClass {
     }
 
     export interface IVisualizationClass {
-        meta: IVisualizationClassMeta;
+        meta: IObjectMeta;
         content: IVisualizationClassContent;
     }
 
