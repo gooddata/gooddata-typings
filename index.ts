@@ -288,10 +288,10 @@ export namespace VisualizationObject {
         buckets: IBucket[];
         filters?: VisualizationObjectFilter[];
         properties?: string;
-        references?: IReferenceItem[];
+        references?: IReferenceItems;
     }
 
-    export interface IReferenceItem {
+    export interface IReferenceItems {
         [identifier: string]: string;
     }
 
