@@ -495,12 +495,10 @@ export namespace Execution {
 
     /**
      * Combination of both AFM executions responses
-     *
-     * `null` value as executionResult means empty response (HTTP 204)
      */
     export interface IExecutionResponses {
         executionResponse: IExecutionResponse;
-        executionResult: IExecutionResult | null;
+        executionResult: IExecutionResult;
     }
 }
 
