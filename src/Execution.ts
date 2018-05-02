@@ -39,6 +39,10 @@ export namespace Execution {
 
     export type IHeader = IMeasureGroupHeader | IAttributeHeader;
 
+    export function isMeasureGroupHeader(header: IHeader): header is IMeasureGroupHeader {
+        return (header as IMeasureGroupHeader).measureGroupHeader !== undefined;
+    }
+
     export interface IResultAttributeHeaderItem {
         attributeHeaderItem: {
             uri: string;
@@ -61,6 +65,10 @@ export namespace Execution {
     }
 
     export type IResultHeaderItem = IResultAttributeHeaderItem | IResultMeasureHeaderItem | IResultTotalHeaderItem;
+
+    export function isResultTotalHeaderItem(headerItem: IResultHeaderItem): headerItem is IResultTotalHeaderItem {
+        return (headerItem as ITotalHeaderItem).totalHeaderItem !== undefined;
+    }
 
     export interface IResultDimension {
         headers: IHeader[];
