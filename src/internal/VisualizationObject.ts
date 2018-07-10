@@ -105,7 +105,7 @@ export namespace Internal {
         export interface IMeasure {
             measure: {
                 localIdentifier: Identifier;
-                definition: IMeasureDefinition | IPoPMeasureDefinition;
+                definition: IMeasureDefinition | IPoPMeasureDefinition | IPreviousPeriodMeasureDefinition;
                 alias?: string;
                 title?: string;
                 format?: string;
@@ -136,6 +136,18 @@ export namespace Internal {
             };
         }
 
+        export interface IPreviousPeriodMeasureDefinition {
+            previousPeriodMeasure: {
+                measureIdentifier: Identifier;
+                dateDataSets: IPreviousPeriodDateDataSet[];
+            };
+        }
+
+        export interface IPreviousPeriodDateDataSet {
+            dataSet: IObjUriQualifier,
+            periodsAgo: number;
+        }
+
         export interface IVisualizationObject {
             meta: IObjectMeta;
             content: IVisualizationObjectContent;
@@ -160,7 +172,7 @@ export namespace Internal {
         }
 
         export function isMeasureDefinition(
-            definition: IMeasureDefinition | IPoPMeasureDefinition,
+            definition: IMeasureDefinition | IPoPMeasureDefinition | IPreviousPeriodDateDataSet,
         ): definition is IMeasureDefinition {
             return (definition as IMeasureDefinition).measureDefinition !== undefined;
         }

@@ -31,7 +31,7 @@ export namespace AFM {
         format?: string;
     }
 
-    export type MeasureDefinition = ISimpleMeasureDefinition | IPopMeasureDefinition;
+    export type MeasureDefinition = ISimpleMeasureDefinition | IPopMeasureDefinition | IPreviousPeriodMeasureDefinition;
 
     export interface ISimpleMeasureDefinition {
         measure: ISimpleMeasure;
@@ -39,6 +39,10 @@ export namespace AFM {
 
     export interface IPopMeasureDefinition {
         popMeasure: IPopMeasure;
+    }
+
+    export interface IPreviousPeriodMeasureDefinition {
+        previousPeriodMeasure: IPreviousPeriodMeasure;
     }
 
     export interface ISimpleMeasure {
@@ -51,6 +55,16 @@ export namespace AFM {
     export interface IPopMeasure {
         measureIdentifier: Identifier;
         popAttribute: ObjQualifier;
+    }
+
+    export interface IPreviousPeriodMeasure {
+        measureIdentifier: Identifier;
+        dateDataSets: IPreviousPeriodDateDataSet[];
+    }
+
+    export interface IPreviousPeriodDateDataSet {
+        dataSet: ObjQualifier;
+        periodsAgo: number
     }
 
     // ObjQualifier type
@@ -137,6 +151,7 @@ export namespace AFM {
     }
 
     export type VisualizationStyleType = 'common' | 'table' | 'line' | 'column' | 'bar' | 'area';
+
     export interface IVisualizationStyle {
         visualizationStyle: {
             type: VisualizationStyleType;
@@ -178,15 +193,21 @@ export namespace AFM {
     }
 
     export function isSimpleMeasureDefinition(
-        definition: AFM.ISimpleMeasureDefinition | AFM.IPopMeasureDefinition
+        definition: AFM.ISimpleMeasureDefinition | AFM.IPopMeasureDefinition | AFM.IPreviousPeriodMeasureDefinition
     ): definition is AFM.ISimpleMeasureDefinition {
         return !!(definition as AFM.ISimpleMeasureDefinition).measure;
     }
 
     export function isPopMeasureDefinition(
-        definition: AFM.ISimpleMeasureDefinition | AFM.IPopMeasureDefinition
+        definition: AFM.ISimpleMeasureDefinition | AFM.IPopMeasureDefinition | AFM.IPreviousPeriodMeasureDefinition
     ): definition is AFM.IPopMeasureDefinition {
         return !!(definition as AFM.IPopMeasureDefinition).popMeasure;
+    }
+
+    export function isPreviousPeriodMeasureDefinition(
+        definition: AFM.ISimpleMeasureDefinition | AFM.IPopMeasureDefinition | AFM.IPreviousPeriodMeasureDefinition
+    ): definition is AFM.IPreviousPeriodMeasureDefinition {
+        return !!(definition as AFM.IPreviousPeriodMeasureDefinition).previousPeriodMeasure;
     }
 
     export function isAttributeSortItem(sortItem: AFM.SortItem): sortItem is AFM.IAttributeSortItem {
