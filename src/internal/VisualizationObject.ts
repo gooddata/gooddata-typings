@@ -102,10 +102,14 @@ export namespace Internal {
             alias?: string;
         }
 
+        export type IMeasureDefinitionType = IMeasureDefinition
+            | IPoPMeasureDefinition
+            | IPreviousPeriodMeasureDefinition;
+
         export interface IMeasure {
             measure: {
                 localIdentifier: Identifier;
-                definition: IMeasureDefinition | IPoPMeasureDefinition | IPreviousPeriodMeasureDefinition;
+                definition: IMeasureDefinitionType;
                 alias?: string;
                 title?: string;
                 format?: string;

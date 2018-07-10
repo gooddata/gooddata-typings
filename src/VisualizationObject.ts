@@ -83,10 +83,14 @@ export namespace VisualizationObject {
         alias?: string;
     }
 
+    export type IMeasureDefinitionType = IMeasureDefinition
+        | IPoPMeasureDefinition
+        | IPreviousPeriodMeasureDefinition;
+
     export interface IMeasure {
         measure: {
             localIdentifier: Identifier;
-            definition: IMeasureDefinition | IPoPMeasureDefinition | IPreviousPeriodMeasureDefinition;
+            definition: IMeasureDefinitionType;
             alias?: string;
             title?: string;
             format?: string;
@@ -150,11 +154,11 @@ export namespace VisualizationObject {
     export function isVisualizationAttribute(
         bucketItem: IMeasure | IVisualizationAttribute
     ): bucketItem is IVisualizationAttribute {
-            return (bucketItem as IVisualizationAttribute).visualizationAttribute !== undefined;
+        return (bucketItem as IVisualizationAttribute).visualizationAttribute !== undefined;
     }
 
     export function isMeasureDefinition(
-        definition: IMeasureDefinition | IPoPMeasureDefinition | IPreviousPeriodMeasureDefinition,
+        definition: IMeasureDefinitionType,
     ): definition is IMeasureDefinition {
         return (definition as IMeasureDefinition).measureDefinition !== undefined;
     }
