@@ -175,8 +175,9 @@ export namespace Internal {
             return (bucketItem as IVisualizationAttribute).visualizationAttribute !== undefined;
         }
 
+        // TODO BB-849 Write unit tests for the class
         export function isMeasureDefinition(
-            definition: IMeasureDefinition | IPoPMeasureDefinition | IPreviousPeriodDateDataSet,
+            definition: IMeasureDefinitionType,
         ): definition is IMeasureDefinition {
             return (definition as IMeasureDefinition).measureDefinition !== undefined;
         }

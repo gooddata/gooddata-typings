@@ -26,12 +26,12 @@ export namespace AFM {
 
     export interface IMeasure {
         localIdentifier: Identifier;
-        definition: IMeasureDefinition;
+        definition: MeasureDefinition;
         alias?: string;
         format?: string;
     }
 
-    export type IMeasureDefinition = ISimpleMeasureDefinition | IPopMeasureDefinition | IPreviousPeriodMeasureDefinition;
+    export type MeasureDefinition = ISimpleMeasureDefinition | IPopMeasureDefinition | IPreviousPeriodMeasureDefinition;
 
     export interface ISimpleMeasureDefinition {
         measure: ISimpleMeasure;
@@ -188,24 +188,25 @@ export namespace AFM {
         };
     }
 
+    // TODO BB-849 Write unit tests for the class and use undefined conditions instead of !!
     export function isObjectUriQualifier(qualifier: AFM.ObjQualifier): qualifier is AFM.IObjUriQualifier {
         return !!(qualifier as AFM.IObjUriQualifier).uri;
     }
 
     export function isSimpleMeasureDefinition(
-        definition: AFM.IMeasureDefinition
+        definition: AFM.MeasureDefinition
     ): definition is AFM.ISimpleMeasureDefinition {
         return !!(definition as AFM.ISimpleMeasureDefinition).measure;
     }
 
     export function isPopMeasureDefinition(
-        definition: AFM.IMeasureDefinition
+        definition: AFM.MeasureDefinition
     ): definition is AFM.IPopMeasureDefinition {
         return !!(definition as AFM.IPopMeasureDefinition).popMeasure;
     }
 
     export function isPreviousPeriodMeasureDefinition(
-        definition: AFM.IMeasureDefinition
+        definition: AFM.MeasureDefinition
     ): definition is AFM.IPreviousPeriodMeasureDefinition {
         return !!(definition as AFM.IPreviousPeriodMeasureDefinition).previousPeriodMeasure;
     }

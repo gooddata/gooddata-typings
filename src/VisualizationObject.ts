@@ -146,7 +146,7 @@ export namespace VisualizationObject {
         visualizationObject: IVisualizationObject;
     }
 
-
+    // TODO BB-849 Write unit tests for the class and use undefined conditions instead of !!
     export function isMeasure(bucketItem: IMeasure | IVisualizationAttribute): bucketItem is IMeasure {
         return (bucketItem as IMeasure).measure !== undefined;
     }
