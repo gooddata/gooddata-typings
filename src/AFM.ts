@@ -1,3 +1,5 @@
+import { isEmpty } from './utils/utils';
+
 export namespace AFM {
     export interface IExecution {
         execution: {
@@ -64,7 +66,7 @@ export namespace AFM {
 
     export interface IPreviousPeriodDateDataSet {
         dataSet: ObjQualifier;
-        periodsAgo: number
+        periodsAgo: number;
     }
 
     // ObjQualifier type
@@ -188,46 +190,46 @@ export namespace AFM {
         };
     }
 
-    // TODO BB-849 Write unit tests for the class and use undefined conditions instead of !!
     export function isObjectUriQualifier(qualifier: AFM.ObjQualifier): qualifier is AFM.IObjUriQualifier {
-        return !!(qualifier as AFM.IObjUriQualifier).uri;
+        return !isEmpty(qualifier) && (qualifier as AFM.IObjUriQualifier).uri !== undefined;
     }
 
     export function isSimpleMeasureDefinition(
         definition: AFM.MeasureDefinition
     ): definition is AFM.ISimpleMeasureDefinition {
-        return !!(definition as AFM.ISimpleMeasureDefinition).measure;
+        return !isEmpty(definition) && (definition as AFM.ISimpleMeasureDefinition).measure !== undefined;
     }
 
     export function isPopMeasureDefinition(
         definition: AFM.MeasureDefinition
     ): definition is AFM.IPopMeasureDefinition {
-        return !!(definition as AFM.IPopMeasureDefinition).popMeasure;
+        return !isEmpty(definition) && (definition as AFM.IPopMeasureDefinition).popMeasure !== undefined;
     }
 
     export function isPreviousPeriodMeasureDefinition(
         definition: AFM.MeasureDefinition
     ): definition is AFM.IPreviousPeriodMeasureDefinition {
-        return !!(definition as AFM.IPreviousPeriodMeasureDefinition).previousPeriodMeasure;
+        return !isEmpty(definition)
+            && (definition as AFM.IPreviousPeriodMeasureDefinition).previousPeriodMeasure !== undefined;
     }
 
     export function isAttributeSortItem(sortItem: AFM.SortItem): sortItem is AFM.IAttributeSortItem {
-        return !!(sortItem as AFM.IAttributeSortItem).attributeSortItem;
+        return !isEmpty(sortItem) && (sortItem as AFM.IAttributeSortItem).attributeSortItem !== undefined;
     }
 
     export function isMeasureSortItem(sortItem: AFM.SortItem): sortItem is AFM.IMeasureSortItem {
-        return !!(sortItem as AFM.IMeasureSortItem).measureSortItem;
+        return !isEmpty(sortItem) && (sortItem as AFM.IMeasureSortItem).measureSortItem !== undefined;
     }
 
     export function isMeasureLocatorItem(locator: AFM.LocatorItem): locator is AFM.IMeasureLocatorItem {
-        return !!(locator as AFM.IMeasureLocatorItem).measureLocatorItem;
+        return !isEmpty(locator) && (locator as AFM.IMeasureLocatorItem).measureLocatorItem !== undefined;
     }
 
     export function isPositiveAttributeFilter(filter: AFM.CompatibilityFilter): filter is AFM.IPositiveAttributeFilter {
-        return !!(filter as AFM.IPositiveAttributeFilter).positiveAttributeFilter;
+        return !isEmpty(filter) && (filter as AFM.IPositiveAttributeFilter).positiveAttributeFilter !== undefined;
     }
 
     export function isNegativeAttributeFilter(filter: AFM.CompatibilityFilter): filter is AFM.INegativeAttributeFilter {
-        return !!(filter as AFM.INegativeAttributeFilter).negativeAttributeFilter;
+        return !isEmpty(filter) && (filter as AFM.INegativeAttributeFilter).negativeAttributeFilter !== undefined;
     }
 }

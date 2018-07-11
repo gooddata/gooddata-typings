@@ -1,4 +1,5 @@
 import { IObjectMeta } from '../Meta';
+import { isEmpty } from '../utils/utils';
 
 export namespace Internal {
     /**
@@ -148,7 +149,7 @@ export namespace Internal {
         }
 
         export interface IPreviousPeriodDateDataSet {
-            dataSet: IObjUriQualifier,
+            dataSet: IObjUriQualifier;
             periodsAgo: number;
         }
 
@@ -166,37 +167,43 @@ export namespace Internal {
         }
 
         export function isMeasure(bucketItem: IMeasure | IVisualizationAttribute): bucketItem is IMeasure {
-            return (bucketItem as IMeasure).measure !== undefined;
+            return !isEmpty(bucketItem) && (bucketItem as IMeasure).measure !== undefined;
         }
 
         export function isVisualizationAttribute(
             bucketItem: IMeasure | IVisualizationAttribute
         ): bucketItem is IVisualizationAttribute {
-            return (bucketItem as IVisualizationAttribute).visualizationAttribute !== undefined;
+            return !isEmpty(bucketItem) && (bucketItem as IVisualizationAttribute).visualizationAttribute !== undefined;
         }
 
-        // TODO BB-849 Write unit tests for the class
         export function isMeasureDefinition(
-            definition: IMeasureDefinitionType,
+            definition: IMeasureDefinitionType
         ): definition is IMeasureDefinition {
-            return (definition as IMeasureDefinition).measureDefinition !== undefined;
+            return !isEmpty(definition) && (definition as IMeasureDefinition).measureDefinition !== undefined;
         }
 
-        export function isAttributeFilter(filter: VisualizationObjectFilter): filter is VisualizationObjectAttributeFilter {
-            return (filter as IVisualizationObjectPositiveAttributeFilter).positiveAttributeFilter !== undefined ||
-                (filter as IVisualizationObjectNegativeAttributeFilter).negativeAttributeFilter !== undefined;
+        export function isAttributeFilter(filter: VisualizationObjectFilter):
+            filter is VisualizationObjectAttributeFilter {
+            return !isEmpty(filter) && (
+                (filter as IVisualizationObjectPositiveAttributeFilter).positiveAttributeFilter !== undefined
+                || (filter as IVisualizationObjectNegativeAttributeFilter).negativeAttributeFilter !== undefined
+            );
         }
 
-        export function isPositiveAttributeFilter(filter: VisualizationObjectAttributeFilter): filter is IVisualizationObjectPositiveAttributeFilter {
-            return (filter as IVisualizationObjectPositiveAttributeFilter).positiveAttributeFilter !== undefined;
+        export function isPositiveAttributeFilter(filter: VisualizationObjectAttributeFilter):
+            filter is IVisualizationObjectPositiveAttributeFilter {
+            return !isEmpty(filter)
+                && (filter as IVisualizationObjectPositiveAttributeFilter).positiveAttributeFilter !== undefined;
         }
 
-        export function isAbsoluteDateFilter(filter: VisualizationObjectDateFilter): filter is IVisualizationObjectAbsoluteDateFilter {
-            return (filter as IVisualizationObjectAbsoluteDateFilter).absoluteDateFilter !== undefined;
+        export function isAbsoluteDateFilter(filter: VisualizationObjectDateFilter):
+            filter is IVisualizationObjectAbsoluteDateFilter {
+            return !isEmpty(filter)
+                && (filter as IVisualizationObjectAbsoluteDateFilter).absoluteDateFilter !== undefined;
         }
 
         export function isAttribute(bucketItem: BucketItem): bucketItem is IVisualizationAttribute {
-            return (bucketItem as IVisualizationAttribute).visualizationAttribute !== undefined;
+            return !isEmpty(bucketItem) && (bucketItem as IVisualizationAttribute).visualizationAttribute !== undefined;
         }
     }
 }
