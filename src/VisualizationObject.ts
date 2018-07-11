@@ -163,6 +163,18 @@ export namespace VisualizationObject {
         return (definition as IMeasureDefinition).measureDefinition !== undefined;
     }
 
+    export function isPopMeasureDefinition(
+        definition: IMeasureDefinitionType
+    ): definition is IPoPMeasureDefinition {
+        return (definition as IPoPMeasureDefinition).popMeasureDefinition !== undefined;
+    }
+
+    export function isPreviousPeriodMeasureDefinition(
+        definition: IMeasureDefinitionType
+    ): definition is IPreviousPeriodMeasureDefinition {
+        return (definition as IPreviousPeriodMeasureDefinition).previousPeriodMeasure !== undefined;
+    }
+
     export function isAttributeFilter(filter: VisualizationObjectFilter): filter is VisualizationObjectAttributeFilter {
         return (filter as IVisualizationObjectPositiveAttributeFilter).positiveAttributeFilter !== undefined ||
             (filter as IVisualizationObjectNegativeAttributeFilter).negativeAttributeFilter !== undefined;

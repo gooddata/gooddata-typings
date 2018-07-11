@@ -26,12 +26,12 @@ export namespace AFM {
 
     export interface IMeasure {
         localIdentifier: Identifier;
-        definition: MeasureDefinition;
+        definition: IMeasureDefinition;
         alias?: string;
         format?: string;
     }
 
-    export type MeasureDefinition = ISimpleMeasureDefinition | IPopMeasureDefinition | IPreviousPeriodMeasureDefinition;
+    export type IMeasureDefinition = ISimpleMeasureDefinition | IPopMeasureDefinition | IPreviousPeriodMeasureDefinition;
 
     export interface ISimpleMeasureDefinition {
         measure: ISimpleMeasure;
@@ -193,19 +193,19 @@ export namespace AFM {
     }
 
     export function isSimpleMeasureDefinition(
-        definition: AFM.ISimpleMeasureDefinition | AFM.IPopMeasureDefinition | AFM.IPreviousPeriodMeasureDefinition
+        definition: AFM.IMeasureDefinition
     ): definition is AFM.ISimpleMeasureDefinition {
         return !!(definition as AFM.ISimpleMeasureDefinition).measure;
     }
 
     export function isPopMeasureDefinition(
-        definition: AFM.ISimpleMeasureDefinition | AFM.IPopMeasureDefinition | AFM.IPreviousPeriodMeasureDefinition
+        definition: AFM.IMeasureDefinition
     ): definition is AFM.IPopMeasureDefinition {
         return !!(definition as AFM.IPopMeasureDefinition).popMeasure;
     }
 
     export function isPreviousPeriodMeasureDefinition(
-        definition: AFM.ISimpleMeasureDefinition | AFM.IPopMeasureDefinition | AFM.IPreviousPeriodMeasureDefinition
+        definition: AFM.IMeasureDefinition
     ): definition is AFM.IPreviousPeriodMeasureDefinition {
         return !!(definition as AFM.IPreviousPeriodMeasureDefinition).previousPeriodMeasure;
     }
