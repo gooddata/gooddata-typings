@@ -1,5 +1,5 @@
 // Copyright (C) 2007-2018, GoodData(R) Corporation. All rights reserved.
-import { VisualizationObject } from '../src/VisualizationObject';
+import { VisualizationObject } from '../VisualizationObject';
 import IMeasure = VisualizationObject.IMeasure;
 import IVisualizationAttribute = VisualizationObject.IVisualizationAttribute;
 import BucketItem = VisualizationObject.BucketItem;

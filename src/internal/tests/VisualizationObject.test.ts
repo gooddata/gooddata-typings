@@ -1,5 +1,5 @@
 // Copyright (C) 2007-2018, GoodData(R) Corporation. All rights reserved.
-import { Internal } from '../../src/internal';
+import { Internal } from '../index';
 import VisualizationObject = Internal.VisualizationObject;
 import IMeasure = VisualizationObject.IMeasure;
 import IVisualizationAttribute = VisualizationObject.IVisualizationAttribute;

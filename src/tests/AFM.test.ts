@@ -1,5 +1,5 @@
 // Copyright (C) 2007-2018, GoodData(R) Corporation. All rights reserved.
-import { AFM } from '../src/AFM';
+import { AFM } from '../AFM';
 import CompatibilityFilter = AFM.CompatibilityFilter;
 import MeasureDefinition = AFM.MeasureDefinition;
 import ObjQualifier = AFM.ObjQualifier;
