@@ -1,5 +1,5 @@
 import { IObjectMeta } from './Meta';
-import { isEmpty } from './utils/utils';
+import isEmpty = require('lodash/isEmpty');
 
 export namespace VisualizationObject {
     export type SortDirection = 'asc' | 'desc';
