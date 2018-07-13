@@ -1,4 +1,4 @@
-# GoodData Typings test
+# GoodData Typings
 > TypeScript interfaces used in UI SDK describing executeAfm API
 
 ## Getting started
