@@ -1,6 +1,15 @@
 {
   "extends": "@gooddata/tslint-config",
+  "rulesDirectory": [
+    "node_modules/tslint-microsoft-contrib"
+  ],
   "rules": {
-    "no-namespace": false
+    "no-namespace": false,
+    "function-name": [
+      true,
+      {
+        "function-regex": "^is([A-Z])"
+      }
+    ]
   }
 }
