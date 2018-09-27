@@ -1,5 +1,5 @@
 # GoodData Typings
-> TypeScript interfaces used in UI SDK describing executeAfm API
+> TypeScript types describing Gooddata UI SDK entities
 
 ## Getting started
 
@@ -16,25 +16,16 @@ $ npm install --save-dev @gooddata/typings
 ```
 
 ## Documentation
-[Documentation](https://help.gooddata.com/display/bHsp5IhQjuz0e6HS0s76/React+Components)
+
+See [Gooddata UI SDK documentation](https://sdk.gooddata.com/gooddata-ui/)
 
 ## Develop
 
 ### Running the development
 
-To develop, you need to run the typescript compiler. By running `yarn dev`, the typescript compiler will be run in watch mode.
+To develop, you need to run the typescript compiler. By running `yarn dev`, the typescript compiler will be started in watch mode.
 ```sh
-$ cd gooddata-typings
 $ yarn dev
-```
-
-
-### Deployment
-```
-git checkout master && git pull upstream master --tags
-npm version [major|minor|patch] -m "Release v%s"
-npm publish
-git push upstream master --tags
 ```
 
 ## Contributing
