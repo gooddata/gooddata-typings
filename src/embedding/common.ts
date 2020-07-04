@@ -225,7 +225,9 @@ export namespace EmbeddedGdc {
     export type IPositiveAttributeFilter = AFM.IPositiveAttributeFilter;
     export type INegativeAttributeFilter = AFM.INegativeAttributeFilter;
     export type IAbsoluteDateFilter = AFM.IAbsoluteDateFilter;
-    export type IRelativeDateFilter = AFM.IRelativeDateFilter;
+    export interface IRelativeDateFilter extends AFM.IRelativeDateFilter {
+        excludeCurrentPeriod?: boolean;
+    }
     export type AttributeFilterItem = IPositiveAttributeFilter | INegativeAttributeFilter;
     export type DateFilterItem = IAbsoluteDateFilter | IRelativeDateFilter;
     export type FilterItem = DateFilterItem | AttributeFilterItem;
