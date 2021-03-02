@@ -1,4 +1,4 @@
-// (C) 2007-2019 GoodData Corporation
+// (C) 2007-2021 GoodData Corporation
 import { VisualizationObject } from './VisualizationObject';
 
 export type Layout = IFluidLayout;
@@ -43,6 +43,7 @@ export interface IFluidLayoutColSize {
 
 export interface IFluidLayoutSize {
     width: number;
+    height?: number;
     heightAsRatio?: number;
 }
 
