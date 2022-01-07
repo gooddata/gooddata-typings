@@ -50,6 +50,6 @@ Use [gooddata-typings CI job](https://checklist.intgdc.com/job/client-libs/job/g
 Report bugs and features on our [issues page](https://github.com/gooddata/gooddata-typings/issues).
 
 ## License
-Copyright (C) 2007-2018, GoodData(R) Corporation. All rights reserved.
+Copyright (C) 2007-2022, GoodData(R) Corporation. All rights reserved.
 
-For more information, please see [LICENSE](https://github.com/gooddata/gooddata-typings/blob/master/LICENSE)
+For more information, please see [LICENSE](https://github.com/gooddata/gooddata-typings/blob/master/LICENSE) and [NOTICE](https://github.com/gooddata/gooddata-typings/blob/master/NOTICE.txt)
