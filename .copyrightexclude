@@ -16,3 +16,4 @@
 *.lock
 *.sh
 *.snap
+.nvmrc
