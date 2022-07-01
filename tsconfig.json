@@ -12,7 +12,8 @@
     "noUnusedParameters": true,
     "outDir": "dist",
     "sourceMap": true,
-    "suppressImplicitAnyIndexErrors": true
+    "suppressImplicitAnyIndexErrors": true,
+    "skipLibCheck": true
   },
   "exclude": [
     "node_modules"
